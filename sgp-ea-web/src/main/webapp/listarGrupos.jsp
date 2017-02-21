@@ -1,9 +1,3 @@
-<%-- 
-    Document   : listarGrupos
-    Created on : 21-feb-2017, 11:57:08
-    Author     : alumno
---%>
-
 <%@page import="com.fpmislata.domain.Tutor"%>
 <%@page import="com.fpmislata.domain.Grupo"%>
 <%@page import="java.util.ArrayList"%>
@@ -29,7 +23,7 @@
                     <th>tutor</th>
 		</tr>
                 <%
-                ArrayList<Grupo> lista = (ArrayList) session.getAttribute("grupos");
+                ArrayList<Grupo> lista = (ArrayList) session.getAttribute("grupo");
                 for(Grupo grupo : lista){                  
                     int id = grupo.getId();
                     String curso = grupo.getCurso();

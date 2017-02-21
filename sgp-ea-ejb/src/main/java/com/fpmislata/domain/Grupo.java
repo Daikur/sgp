@@ -21,17 +21,21 @@ public class Grupo implements Serializable {
     @Column(nullable = false, length = 45)
     private String grupo;
 
+    @Column(nullable = false, length = 45)
+    private int id_tutor;
+
     @OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
-    @JoinColumn(name="tutor")
+    @PrimaryKeyJoinColumn
     private Tutor tutor;
 
-    public Grupo() {
-    }
-
-    public Grupo(int id, String curso, String grupo) {
+    public Grupo(int id, String curso, String grupo, int id_tutor) {
         this.id = id;
         this.curso = curso;
         this.grupo = grupo;
+        this.id_tutor = id_tutor;
+    }
+
+    public Grupo() {
     }
 
     public int getId() {
@@ -58,6 +62,14 @@ public class Grupo implements Serializable {
         this.grupo = grupo;
     }
 
+    public int getId_tutor() {
+        return id_tutor;
+    }
+
+    public void setId_tutor(int id_tutor) {
+        this.id_tutor = id_tutor;
+    }
+
     public Tutor getTutor() {
         return tutor;
     }
@@ -66,13 +78,12 @@ public class Grupo implements Serializable {
         this.tutor = tutor;
     }
 
+    
+    
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + this.id;
-        hash = 23 * hash + Objects.hashCode(this.curso);
-        hash = 23 * hash + Objects.hashCode(this.grupo);
-        hash = 23 * hash + Objects.hashCode(this.tutor);
+        int hash = 3;
+        hash = 31 * hash + this.id;
         return hash;
     }
 
@@ -91,16 +102,15 @@ public class Grupo implements Serializable {
         if (this.id != other.id) {
             return false;
         }
-        if (!Objects.equals(this.curso, other.curso)) {
-            return false;
-        }
-        if (!Objects.equals(this.grupo, other.grupo)) {
-            return false;
-        }
-        if (!Objects.equals(this.tutor, other.tutor)) {
-            return false;
-        }
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Grupo{" + "id=" + id + ", curso=" + curso + ", grupo=" + grupo + ", id_tutor=" + id_tutor + ", tutor=" + tutor + '}';
+    }
+
+    
+    
+    
 }
