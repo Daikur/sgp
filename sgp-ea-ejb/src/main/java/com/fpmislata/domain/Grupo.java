@@ -32,7 +32,7 @@ public class Grupo implements Serializable {
     @PrimaryKeyJoinColumn
     private Tutor tutor;
 
-    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "profesores_grupos")
+    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "grupos")
     private Set<Profesor> profesor;
 
     public Grupo(int id, String curso, String grupo, int id_tutor) {

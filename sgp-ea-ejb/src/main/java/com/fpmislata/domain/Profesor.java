@@ -28,8 +28,8 @@ public class Profesor implements Serializable {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(name = "profesores_grupos",
-            joinColumns = @JoinColumn(name = "profesor"),
-            inverseJoinColumns = @JoinColumn(name = "grupo"))
+            joinColumns = @JoinColumn(name = "id_profesor"),
+            inverseJoinColumns = @JoinColumn(name = "id_grupo"))
     private Set<Grupo> grupos;
 
     public Profesor() {
