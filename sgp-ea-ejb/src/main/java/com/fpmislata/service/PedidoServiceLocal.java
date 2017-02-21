@@ -26,7 +26,5 @@ public interface PedidoServiceLocal {
     List listPedidos();
 
     Pedido findPedidosById(Pedido pedido);
-
-    List findPedidosByIdPersona(Persona persona);
-    
+ 
 }

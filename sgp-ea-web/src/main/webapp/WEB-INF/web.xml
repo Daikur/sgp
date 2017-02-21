@@ -19,6 +19,7 @@
     <servlet-mapping>
         <servlet-name>ControllerPedido</servlet-name>
         <url-pattern>/ListarPedidosPersona</url-pattern>
+        <url-pattern>/ListarPedidos</url-pattern>
         <url-pattern>/ControllerPedido</url-pattern>
     </servlet-mapping>
     <session-config>

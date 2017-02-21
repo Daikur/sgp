@@ -38,9 +38,4 @@ public class PedidoService implements PedidoServiceLocal {
         return pedidoDao.findPedidoById(pedido);
     }
     
-    @Override
-    public List findPedidosByIdPersona(Persona persona) {
-        return pedidoDao.findPedidosByIdPersona(persona);
-    }
-    
 }

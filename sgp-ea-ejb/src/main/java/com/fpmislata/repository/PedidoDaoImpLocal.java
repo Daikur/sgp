@@ -14,8 +14,6 @@ public interface PedidoDaoImpLocal {
 
     Pedido findPedidoById(Pedido pedido);
 
-    List findPedidosByIdPersona(Persona persona);
-
     void deletePedido(Pedido pedido);
 
     List listPedidos();

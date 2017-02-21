@@ -45,6 +45,8 @@ public class ControllerPedido extends HttpServlet {
         String userPath = request.getServletPath();
         if (userPath.equals("/ListarPedidosPersona")) {
             listarPedidosPersona(request, response);
+        } else if (userPath.equals("/ListarPedidos")) {
+            listarPedidos(request, response);
         }
     }
 
@@ -52,15 +54,39 @@ public class ControllerPedido extends HttpServlet {
             throws ServletException, IOException {
         try {
             String idPersona = request.getParameter("id");
-            int id = Integer.parseInt(idPersona);
+            int id = Integer.valueOf(idPersona);
             Persona persona = new Persona();
             persona.setId(id);
-            Persona p = new Persona();
-            p = this.personaService.findPersonaById(p);
-            ArrayList<Pedido> listaArrayPedidos = new ArrayList(p.getPedidos());
+            persona = personaService.findPersonaById(persona);
+            
+            ArrayList<Pedido> listaArrayPedidos = new ArrayList(persona.getPedidos());
             request.getSession().setAttribute("pedidos", listaArrayPedidos);
             RequestDispatcher rd
-                    = request.getRequestDispatcher("/pedidosPersona.jsp");
+                    = request.getRequestDispatcher("/listarPedidos.jsp");
+            rd.forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void listarPedidos(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            //EJECUTAMOS EL METODO Y OBTENEMOS LA LISTA
+            List listaPedidos = pedidoService.listPedidos();
+
+            //Asignamos al request el atributo facturas
+            ArrayList<Pedido> listaArrayPedidos = new ArrayList<>(listaPedidos);
+            request.getSession().setAttribute("pedidos", listaArrayPedidos);
+
+            //Como podemos agregar facturas necesitamos cargar las personas
+            List listaPersonas = personaService.listPersonas();
+            ArrayList<Persona> listaArrayPersonas = new ArrayList<>(listaPersonas);
+            request.getSession().setAttribute("personas", listaArrayPersonas);
+
+            //Pasamos al requestDispatcher la pagina a cargar 
+            RequestDispatcher rd = request.getRequestDispatcher("/listarPedidos.jsp");
+            //Cargamos la pagina
             rd.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

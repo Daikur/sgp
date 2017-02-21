@@ -11,6 +11,7 @@
 	<h1>Listado de Personas</h1>
         
 	<a href="agregarPersona.jsp">Agregar Persona</a>
+        <a href="ListarPedidos">Listado Pedidos</a>
 	<br/>
 	<br/>
 

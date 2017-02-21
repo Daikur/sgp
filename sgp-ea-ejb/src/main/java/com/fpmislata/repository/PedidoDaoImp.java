@@ -12,10 +12,9 @@ public class PedidoDaoImp implements PedidoDaoImpLocal {
 
     @PersistenceContext(unitName = "PersonaPU")
     EntityManager em;
-    
+
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
-
     @Override
     public void addPedido(Pedido pedido) {
         em.persist(pedido);
@@ -32,13 +31,8 @@ public class PedidoDaoImp implements PedidoDaoImpLocal {
     }
 
     @Override
-    public List findPedidosByIdPersona(Persona persona) {
-        List a = em.createNamedQuery("Pedidos.findByPerson").getResultList();
-        return a;
-    }
-
-    @Override
     public void deletePedido(Pedido pedido) {
+        pedido = findPedidoById(pedido);
         em.remove(pedido);
     }
 
@@ -48,13 +42,4 @@ public class PedidoDaoImp implements PedidoDaoImpLocal {
         return a;
     }
 
-    
-
-    
-    
-
-    
-    
-    
-    
 }

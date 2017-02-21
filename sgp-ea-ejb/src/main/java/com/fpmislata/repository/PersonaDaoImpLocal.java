@@ -11,12 +11,12 @@ public interface PersonaDaoImpLocal {
 
     void updatePersona(Persona persona);
 
-    Persona findPersonaById(Persona persona);
-
     Persona findPersonaByEmail(Persona persona);
 
     void deletePersona(Persona persona);
 
     List listPersonas();
+
+    Persona findPersonaById(Persona persona);
     
 }

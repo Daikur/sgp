@@ -56,4 +56,23 @@ public class Pedido implements Serializable {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof Pedido)) {
+            return false;
+        }
+        Pedido other = (Pedido) object;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (int) id;
+        return hash;
+    }
 }

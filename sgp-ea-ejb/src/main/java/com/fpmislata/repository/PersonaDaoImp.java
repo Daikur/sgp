@@ -21,10 +21,6 @@ public class PersonaDaoImp implements PersonaDaoImpLocal {
         em.merge(persona);
     }
 
-    @Override
-    public Persona findPersonaById(Persona persona) {
-        return em.find(Persona.class, persona.getId());
-    }
 
     @Override
     public Persona findPersonaByEmail(Persona persona) {
@@ -49,6 +45,11 @@ public class PersonaDaoImp implements PersonaDaoImpLocal {
     public List listPersonas() {
         List a = em.createNamedQuery("Persona.findAll").getResultList();
         return a;
+    }
+
+    @Override
+    public Persona findPersonaById(Persona persona) {
+        return em.find(Persona.class,persona.getId());
     }
 
 }
