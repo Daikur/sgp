@@ -1,7 +1,9 @@
 package com.fpmislata.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,8 @@ import javax.persistence.*;
 @Table(name = "grupos")
 
 public class Grupo implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,14 +32,19 @@ public class Grupo implements Serializable {
     @PrimaryKeyJoinColumn
     private Tutor tutor;
 
+    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "profesores_grupos")
+    private Set<Profesor> profesor;
+
     public Grupo(int id, String curso, String grupo, int id_tutor) {
         this.id = id;
         this.curso = curso;
         this.grupo = grupo;
         this.id_tutor = id_tutor;
+        this.profesor = new HashSet<>();
     }
 
     public Grupo() {
+        this.profesor = new HashSet<>();
     }
 
     public int getId() {
@@ -78,8 +87,6 @@ public class Grupo implements Serializable {
         this.tutor = tutor;
     }
 
-    
-    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -110,7 +117,4 @@ public class Grupo implements Serializable {
         return "Grupo{" + "id=" + id + ", curso=" + curso + ", grupo=" + grupo + ", id_tutor=" + id_tutor + ", tutor=" + tutor + '}';
     }
 
-    
-    
-    
 }
