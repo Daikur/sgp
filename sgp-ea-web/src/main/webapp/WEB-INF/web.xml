@@ -12,6 +12,10 @@
         <servlet-name>ControllerGrupo</servlet-name>
         <servlet-class>com.fpmislata.servlets.ControllerGrupo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControllerProfesor</servlet-name>
+        <servlet-class>com.fpmislata.servlets.ControllerProfesor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControllerPersona</servlet-name>
         <url-pattern>/AltaPersona</url-pattern>
@@ -29,7 +33,12 @@
     <servlet-mapping>
         <servlet-name>ControllerGrupo</servlet-name>
         <url-pattern>/ListarGrupo</url-pattern>
-        <url-pattern>/ControllerGrupo</url-pattern>     
+        <url-pattern>/ControllerGrupo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerProfesor</servlet-name>
+        <url-pattern>/ListarProfesores</url-pattern>
+        <url-pattern>/ControllerProfesor</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

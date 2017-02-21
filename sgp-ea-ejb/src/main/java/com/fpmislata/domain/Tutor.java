@@ -9,6 +9,8 @@ import javax.persistence.*;
     @NamedQuery(name = "Tutor.findAll", query = "SELECT t FROM Tutor t ORDER BY t.id")})
 @Table(name = "tutores")
 public class Tutor implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
