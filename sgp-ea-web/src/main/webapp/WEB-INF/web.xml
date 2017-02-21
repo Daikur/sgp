@@ -8,6 +8,10 @@
         <servlet-name>ControllerPedido</servlet-name>
         <servlet-class>com.fpmislata.servlets.ControllerPedido</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControllerGrupo</servlet-name>
+        <servlet-class>com.fpmislata.servlets.ControllerGrupo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControllerPersona</servlet-name>
         <url-pattern>/AltaPersona</url-pattern>
@@ -20,6 +24,11 @@
         <servlet-name>ControllerPedido</servlet-name>
         <url-pattern>/ListarPedidosPersona</url-pattern>
         <url-pattern>/ControllerPedido</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControllerGrupo</servlet-name>
+        <url-pattern>/ListarGrupo</url-pattern>
+        <url-pattern>/ControllerGrupo</url-pattern>     
     </servlet-mapping>
     <session-config>
         <session-timeout>
